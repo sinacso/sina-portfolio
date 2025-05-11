@@ -1,0 +1,98 @@
+/* Grundlegendes Layout */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  color: #333333;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #004c7f;
+  padding: 2em;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #ffffff;
+}
+
+/* Navigation */
+nav {
+  background-color: #007c9c;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  gap: 1em;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+nav a:focus,
+nav a:hover {
+  color: #ff6600;
+  outline: 2px solid #ff6600;
+}
+
+/* Sections */
+section {
+  padding: 2em;
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+/* Footer */
+footer {
+  background-color: #003d5b;
+  text-align: center;
+  padding: 1em;
+}
+
+footer p {
+  color: #ffffff;
+}
+
+/* Barrierefreiheit & Kontrast */
+.high-contrast {
+  background-color: #003366;
+  color: #ffffff;
+}
+
+/* Typografie */
+h2 {
+  font-size: 2em;
+  color: #004c7f;
+}
+
+p,
+ul {
+  font-size: 1.2em;
+  color: #333333;
+}
+
+/* Links */
+a {
+  color: #004c7f;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  text-decoration: underline;
+}
