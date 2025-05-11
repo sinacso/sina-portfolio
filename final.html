@@ -1,0 +1,139 @@
+<body>
+    <!DOCTYPE html>
+
+
+    <html lang="de-simple-DE">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple HTML Page</title>
+        <!-- an dritter Stelle, vorne detail, hinten website. trennzeichen am besten - -->
+        <link rel="stylesheet" href="styles.css">
+        <meta name="color.scheme" content="light dark">
+        <link rel="stylesheet" href="style.css">
+        <!-- media ist hier optional-->
+        <meta>
+        <meta>
+        <link rel="canonical" href="https://example.com"> <!-- originäre quelle-->
+        <!-- format erkennung-->
+        <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+        <!-- keine telefonnummern erkennen -->
+        <!-- favicons -->
+        <link rel="icon" href="favicon-svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="mask-icon" href="mask-icon.svg" color="#000000">
+        <!-- social media -->
+        <meta property="og:title" content="Title of the page">
+        <meta property="og:description" content="Description of the page">
+        <meta property="og:url" content="https://example.com">
+        <meta property="og:image" content="https://example.com/image.jpg">
+
+        <meta property="og:image:alt" content="Description of the image, notwendig f+r barrierefreiheit">
+        <meta property="og:image:type" Content="Image/png">
+        <meta property="og:image:width" Content="1200">
+        <meta property="og:image:height" Content="627">
+        <metaproperty="og:site_name" Content="Seiten-Name">
+            <meta property="og:type" Content="Website">
+
+            <!-- alle Infos zu og: auf https://ogp.me/ -->
+
+            <meta Name="Twitter:card" Content="summary_large_image"><!-- groß besser bei Sehproblemen -->
+
+            <meta Name="Twitter:description" Content="siehe og:description">
+
+            <meta Name="Twitter:title"  Content="siehe og:image:alt">
+            <meta Name="Twitter:image" Content="">
+            <meta Name="Twitter:image:alt" Content="siehe og:image:alt">
+            <!-- <base> ist nicht barrierefrei -->
+
+    </head>
+
+    <body>
+        <!-- Skip-Link Bereich -->
+        <section id="anfang" class="sr-only">
+            <h2>Sprungmarken</h2>
+            <ul>
+                <li><a href="#start">Zur Startseite</a></li>
+                <li><a href="#ueber-mich">Über mich</a></li>
+                <li><a href="#projekte">Projekte</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </section>
+
+        <header>
+            <!-- Logo und Titel -->
+            <h1>Sinas Portfolio</h1>
+        </header>
+
+        <nav>
+
+            <a onclick="showSection('start')">Startseite</a>
+
+            <a onclick="showSection('ueber-mich')">Über mich</a>
+
+            <a onclick="showSection('projekte')">Projekte</a>
+
+            <a onclick="showSection('skills')">Skills</a>
+
+            <a onclick="showSection('kontakt')">Kontakt</a>
+
+        </nav>
+
+        <main>
+            <section id="start" class="active">
+                <h2>Willkommen!</h2>
+                <p>Hier entsteht mein persönliches Portfolio mit Projekten und Informationen über meine Fähigkeiten.</p>
+            </section>
+
+            <section id="ueber-mich">
+                <h2>Über mich</h2>
+                <p>Ich bin Sina, 24 Jahre alt und studiere Medieninformatik. Weitere Informationen folgen.</p>
+            </section>
+
+            <section id="projekte">
+                <h2>Projekte</h2>
+                <p>Hier werden bald einige meiner Uni- und Freizeitprojekte zu sehen sein – z.B. Webseiten, kleine Apps
+                    oder Designarbeiten.</p>
+            </section>
+
+            <section id="skills">
+                <h2>Skills</h2>
+                <ul>
+                    <li>HTML & CSS</li>
+                    <li>Java, Python</li>
+                    <li>JavaScript, TypeScript</li>
+                    <li>Teamwork</li>
+                </ul>
+            </section>
+
+            <section id="kontakt">
+                <h2>Kontakt</h2>
+                <p>Du erreichst mich per <a href="mailto:sina@example.com">E-Mail</a> oder über LinkedIn (Link folgt).
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Sina – Medieninformatik</p>
+        </footer>
+
+        <script>
+            // Aktiven Abschnitt anzeigen
+            function showSection(sectionId) {
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(sectionId).classList.add('active');
+            }
+
+            // Standardabschnitt anzeigen
+            document.addEventListener("DOMContentLoaded", function () {
+                showSection('start');
+            });
+        </script>
+
+    </body>
+
+    </html>
