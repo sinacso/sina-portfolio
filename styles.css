@@ -122,8 +122,8 @@ body.dark-mode nav a {
 
 body.dark-mode nav a:focus,
 body.dark-mode nav a:hover {
-  color: #0fd4cd;
-  outline: 2px solid #13b0ab;
+  color: #66d9ef;
+  outline: 2px solid #66d9ef;
 }
 
 body.dark-mode footer {
