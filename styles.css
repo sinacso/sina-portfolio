@@ -11,7 +11,7 @@ body {
 
 /* Header */
 header {
-  background-color: #004c7f;
+  background-color: #c8ad87;
   padding: 2em;
   text-align: center;
 }
@@ -19,12 +19,12 @@ header {
 header h1 {
   margin: 0;
   font-size: 2.5em;
-  color: #ffffff;
+  color: #222424;
 }
 
 /* Navigation */
 nav {
-  background-color: #007c9c;
+  background-color: #222424;
   display: flex;
   justify-content: center;
   padding: 1em;
@@ -43,8 +43,8 @@ nav a {
 
 nav a:focus,
 nav a:hover {
-  color: #ff6600;
-  outline: 2px solid #ff6600;
+  color: #0fd4cd;
+  outline: 2px solid #0fd4cd;
 }
 
 /* Sections */
@@ -59,7 +59,7 @@ section.active {
 
 /* Footer */
 footer {
-  background-color: #003d5b;
+  background-color: #49453f;
   text-align: center;
   padding: 1em;
 }
@@ -70,14 +70,14 @@ footer p {
 
 /* Barrierefreiheit & Kontrast */
 .high-contrast {
-  background-color: #003366;
+  background-color: #0fd4cd;
   color: #ffffff;
 }
 
 /* Typografie */
 h2 {
   font-size: 2em;
-  color: #004c7f;
+  color: #49453f;
 }
 
 p,
@@ -88,11 +88,93 @@ ul {
 
 /* Links */
 a {
-  color: #004c7f;
-  text-decoration: none;
+  color: #13b0ab;
+  text-decoration: underline;
 }
 
 a:focus,
 a:hover {
   text-decoration: underline;
+}
+
+
+/* Dark Mode Farben */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.dark-mode header {
+  background-color: #49453f;
+}
+
+body.dark-mode header h1 {
+  color: #f5f5f5;
+}
+
+body.dark-mode nav {
+  background-color: #AC8355;
+}
+
+body.dark-mode nav a {
+  color: #222424;
+}
+
+body.dark-mode nav a:focus,
+body.dark-mode nav a:hover {
+  color: #0fd4cd;
+  outline: 2px solid #13b0ab;
+}
+
+body.dark-mode footer {
+  background-color: #111111;
+}
+
+body.dark-mode h2 {
+  color: #AC8355;
+}
+
+body.dark-mode a {
+  color: #66d9ef;
+}
+
+body.dark-mode p,
+body.dark-mode li {
+  color: #dddddd;
+}
+
+/* Toggle-Button im Header oben rechts */
+header {
+  position: relative;
+}
+
+#mode-toggle {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background-color: transparent;
+  border: 2px solid #222424;
+  color: #222424;
+  border-radius: 5px;
+  padding: 0.4em 0.6em;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+#mode-toggle:hover,
+#mode-toggle:focus {
+  background-color: #222424;
+  color: #ffffff;
+  outline: none;
+}
+
+body.dark-mode #mode-toggle {
+  border-color: #f5f5f5;
+  color: #f5f5f5;
+}
+
+body.dark-mode #mode-toggle:hover,
+body.dark-mode #mode-toggle:focus {
+  background-color: #f5f5f5;
+  color: #1e1e1e;
 }
