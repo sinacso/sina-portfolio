@@ -64,7 +64,9 @@
 
         <header>
             <!-- Logo und Titel -->
+            <button id="mode-toggle" onclick="toggleMode()" aria-label="Farbmodus wechseln">🌙</button>
             <h1>Sinas Portfolio</h1>
+
         </header>
 
         <nav>
@@ -131,6 +133,32 @@
             // Standardabschnitt anzeigen
             document.addEventListener("DOMContentLoaded", function () {
                 showSection('start');
+            });
+
+            function showSection(sectionId) {
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(sectionId).classList.add('active');
+            }
+
+            function toggleMode() {
+                const body = document.body;
+                const button = document.getElementById('mode-toggle');
+                const isDark = body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', isDark);
+                button.textContent = isDark ? '☀️' : '🌙';
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                showSection('start');
+
+                // Dark Mode aus localStorage laden
+                const savedMode = localStorage.getItem('darkMode') === 'true';
+                if (savedMode) {
+                    document.body.classList.add('dark-mode');
+                    document.getElementById('mode-toggle').textContent = '☀️';
+                }
             });
         </script>
 
