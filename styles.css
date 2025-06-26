@@ -1,0 +1,278 @@
+/* Grundlegendes Layout */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  color: #333333;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #c8ad87;
+  padding: 2em;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  color: #222424;
+}
+
+/* Navigation */
+nav {
+  background-color: #222424;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  gap: 1em;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+nav a:focus,
+nav a:hover {
+  color: #0fd4cd;
+  outline: 2px solid #0fd4cd;
+}
+
+/* Sections */
+section {
+  padding: 2em;
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+/* Footer */
+footer {
+  background-color: #49453f;
+  text-align: center;
+  padding: 1em;
+}
+
+footer p {
+  color: #ffffff;
+}
+
+/* Barrierefreiheit & Kontrast */
+.high-contrast {
+  background-color: #0fd4cd;
+  color: #ffffff;
+}
+
+/* Typografie */
+h2 {
+  font-size: 2em;
+  color: #49453f;
+}
+
+p,
+ul {
+  font-size: 1.2em;
+  color: #333333;
+}
+
+/* Links */
+a {
+  color: #13b0ab;
+  text-decoration: underline;
+}
+
+a:focus,
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* Dark Mode Farben */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.dark-mode header {
+  background-color: #49453f;
+}
+
+body.dark-mode header h1 {
+  color: #f5f5f5;
+}
+
+body.dark-mode nav {
+  background-color: #AC8355;
+}
+
+body.dark-mode nav a {
+  color: #222424;
+}
+
+body.dark-mode nav a:focus,
+body.dark-mode nav a:hover {
+  color: #66e4ef;
+  outline: 2px solid #66e4ef;
+}
+
+body.dark-mode footer {
+  background-color: #111111;
+}
+
+body.dark-mode h2 {
+  color: #AC8355;
+}
+
+body.dark-mode a {
+  color: #19aeab;
+}
+
+body.dark-mode p,
+body.dark-mode li {
+  color: #dddddd;
+}
+
+body.dark-mode .projekt-kachel {
+    background: linear-gradient(to right, #534c76 0%, #6f68a8 40%, #a89ed4 100%);
+    color: black;
+}
+
+body.dark-mode .projekt-info p {
+    color: #000000;
+    opacity: 1;
+}
+
+/* Toggle-Button im Header oben rechts */
+header {
+  position: relative;
+}
+
+#mode-toggle {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background-color: transparent;
+  border: 2px solid #222424;
+  color: #222424;
+  border-radius: 5px;
+  padding: 0.4em 0.6em;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+#mode-toggle:hover,
+#mode-toggle:focus {
+  background-color: #222424;
+  color: #ffffff;
+  outline: none;
+}
+
+body.dark-mode #mode-toggle {
+  border-color: #f5f5f5;
+  color: #f5f5f5;
+}
+
+body.dark-mode #mode-toggle:hover,
+body.dark-mode #mode-toggle:focus {
+  background-color: #f5f5f5;
+  color: #1e1e1e;
+}
+
+/* Über mich Layout */
+.ueber-mich-container {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    flex-wrap: wrap; /* sorgt dafür, dass es auch auf kleineren Bildschirmen gut aussieht */
+}
+
+.profilbild {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #49453f;
+}
+
+.ueber-mich-text {
+    max-width: 600px;
+    font-size: 1.2em;
+}
+
+.projekt-kachel {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #120a2b 0%, #34234d 40%, #1c0f3a 100%);    
+    padding: 1.5em;
+    border-radius: 1em;
+    margin-bottom: 1.5em;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 800px;
+}
+
+.projekt-kachel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.projekt-logo {
+    flex-shrink: 0;
+}
+
+.scorch-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #110b45; /* etwas dunkler als vorher */
+    display: block;
+    border: 4px solid #4c437a;
+    cursor: pointer;
+}
+
+.projekt-info {
+    margin-left: 2em;
+    flex-grow: 1;
+}
+
+.projekt-info h3 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.projekt-info p {
+    margin: 0.5em 0 0;
+    font-size: 1.2em;
+    color: white;
+    opacity: 0.9;
+    
+}
+
+.projekt-kachel-blau {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #0a2740 0%, #1e6091 40%, #335b87 100%);
+    padding: 1.5em;
+    border-radius: 1em;
+    margin-bottom: 1.5em;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 800px;
+}
+
+.projekt-kachel-blau:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
