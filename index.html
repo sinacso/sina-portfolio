@@ -1,207 +1,260 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinas Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .projekt-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5em;
+    }
+
+    @media (min-width: 800px) {
+      .projekt-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .projekt-container {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .projekt-kachel {
+      width: 100%;
+    }
+  </style>
+</head>
 
 <body>
-    <!DOCTYPE html>
+  <header>
+    <button id="mode-toggle" onclick="toggleMode()" aria-label="Farbmodus wechseln">🌙</button>
+    <h1>Sinas Portfolio</h1>
+  </header>
 
+  <nav>
+    <a onclick="showSection('start')">Startseite</a>
+    <a onclick="showSection('ueber-mich')">Über mich</a>
+    <a onclick="showSection('projekte')">Projekte</a>
+    <a onclick="showSection('skills')">Skills</a>
+    <a onclick="showSection('kontakt')">Kontakt</a>
+  </nav>
 
-    <html lang="de-simple-DE">
+  <main>
+    <section id="start" class="active">
+      <h2>Willkommen!</h2>
+      <p>Hier entsteht mein persönliches Portfolio mit Projekten und Informationen über meine Fähigkeiten.</p>
+    </section>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Simple HTML Page</title>
-        <!-- an dritter Stelle, vorne detail, hinten website. trennzeichen am besten - -->
-        <link rel="stylesheet" href="styles.css">
-        <meta name="color.scheme" content="light dark">
-        <link rel="stylesheet" href="style.css">
-        <!-- media ist hier optional-->
-        <meta>
-        <meta>
-        <link rel="canonical" href="https://example.com"> <!-- originäre quelle-->
-        <!-- format erkennung-->
-        <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
-        <!-- keine telefonnummern erkennen -->
-        <!-- favicons -->
-        <link rel="icon" href="favicon-svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="mask-icon" href="mask-icon.svg" color="#000000">
-        <!-- social media -->
-        <meta property="og:title" content="Title of the page">
-        <meta property="og:description" content="Description of the page">
-        <meta property="og:url" content="https://example.com">
-        <meta property="og:image" content="https://example.com/image.jpg">
+    <section id="ueber-mich">
+      <h2>Über mich</h2>
+      <div class="ueber-mich-container">
+        <img src="images/regen2.PNG" alt="Portrait von Sina" class="profilbild">
+        <div class="ueber-mich-text">
+          <p>Ich bin Sina, 24 Jahre alt und studiere Medieninformatik im Bachelor.</p>
+          <p>Ich beginne gerade damit, kleine Webprojekte umzusetzen und dabei stets Wert auf Barrierefreiheit und Usability zu legen.</p>
+          <p>In meiner Freizeit beschäftige ich mich gerne mit Sport, Gaming und kleinen Bauprojekten.</p>
+        </div>
+      </div>
+    </section>
 
-        <meta property="og:image:alt" content="Description of the image, notwendig f+r barrierefreiheit">
-        <meta property="og:image:type" Content="Image/png">
-        <meta property="og:image:width" Content="1200">
-        <meta property="og:image:height" Content="627">
-        <metaproperty="og:site_name" Content="Seiten-Name">
-            <meta property="og:type" Content="Website">
+    <section id="projekte">
+      <h2>Projekte</h2>
 
-            <!-- alle Infos zu og: auf https://ogp.me/ -->
+      <div class="projekt-container">
 
-            <meta Name="Twitter:card" Content="summary_large_image"><!-- groß besser bei Sehproblemen -->
-
-            <meta Name="Twitter:description" Content="siehe og:description">
-
-            <meta Name="Twitter:title"  Content="siehe og:image:alt">
-            <meta Name="Twitter:image" Content="">
-            <meta Name="Twitter:image:alt" Content="siehe og:image:alt">
-            <!-- <base> ist nicht barrierefrei -->
-
-    </head>
-
-    <body>
-        <!-- Skip-Link Bereich -->
-        <section id="anfang" class="sr-only">
-            <h2>Sprungmarken</h2>
-            <ul>
-                <li><a href="#start">Zur Startseite</a></li>
-                <li><a href="#ueber-mich">Über mich</a></li>
-                <li><a href="#projekte">Projekte</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-            </ul>
-        </section>
-
-        <header>
-            <!-- Logo und Titel -->
-            <button id="mode-toggle" onclick="toggleMode()" aria-label="Farbmodus wechseln">🌙</button>
-            <h1>Sinas Portfolio</h1>
-
-        </header>
-
-        <nav>
-
-            <a onclick="showSection('start')">Startseite</a>
-
-            <a onclick="showSection('ueber-mich')">Über mich</a>
-
-            <a onclick="showSection('projekte')">Projekte</a>
-
-            <a onclick="showSection('skills')">Skills</a>
-
-            <a onclick="showSection('kontakt')">Kontakt</a>
-
-        </nav>
-
-        <main>
-            <section id="start" class="active">
-                <h2>Willkommen!</h2>
-                <p>Hier entsteht mein persönliches Portfolio mit Projekten und Informationen über meine Fähigkeiten.</p>
-            </section>
-
-            <section id="ueber-mich">
-                <h2>Über mich</h2>
-                <div class="ueber-mich-container">
-                    <img src="images/regen2.PNG" alt="Portrait von Sina" class="profilbild">
-                    <div class="ueber-mich-text">
-                        <p>Ich bin Sina, 24 Jahre alt und studiere Medieninformatik im Bachelor.</p>
-                        <p>Ich beginne gerade damit, kleine Webprojekte umzusetzen und dabei stets Wert auf
-                            Barrierefreiheit und Usability zu legen.</p>
-                        <p>In meiner Freizeit beschäftige ich mich gerne mit Sport, Gaming und kleinen Bauprojekten.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="projekte">
-                <h2>Projekte</h2>
-                <p>Hier werden bald einige meiner Uni- und Freizeitprojekte zu sehen sein – z.B. Webseiten, kleine Apps
-                    oder Designarbeiten.</p>
-                <!-- Kachel 1 -->
-<div class="projekt-kachel" onclick="toggleDetails(this)">
-    <div class="projekt-logo">
-        <a href="https://www.scorch-analytics.de" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
-            <img src="images/scorch.png" alt="Scorch Logo" class="scorch-logo">
-        </a>
-    </div>
-    <div class="projekt-info">
-        <h3>Scorch Website</h3>
-        <p>Eine Statistik-Website für Spieler und Ingame-Ressourcen, die Nutzern eine Hilfestellung sein soll.</p>
-    </div>
-    <div class="projekt-details">
-        <h4>Scorch Website – Details</h4>
-        <p>Die Scorch Website liefert präzise Statistiken für Spiele und Ressourcen. Nutzer können auf einfache Weise Ingame-Informationen abrufen und erhalten visuelle Analysen.</p>
-        <p><strong>Technologien:</strong> HTML, CSS, JavaScript</p>
-    </div>
-</div>
-
-    <!-- Kachel 2 -->
-    <div class="projekt-kachel projekt-kachel-blau">
+        <div class="projekt-kachel projekt-scorch" onclick="toggleDetails(this)">
+    <div class="projekt-header">
         <div class="projekt-logo">
-           <a href="https://www.example-app.de" target="_blank" rel="noopener noreferrer">
-                <img src="images/boulder.png" alt="Beispiel App Logo" class="scorch-logo">
+            <a href="https://www.scorch-analytics.de" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
+                <img src="images/scorch.png" alt="Scorch Logo" class="scorch-logo">
             </a>
         </div>
         <div class="projekt-info">
-            <h3>Boulder Tracking App</h3>
-            <p>Eine kleine App, mit der du entspannt deine Kletterfortschritte und -erfolge tracken kannst!</p>
+            <h3>Scorch Website</h3>
+            <p>Eine Statistik-Website für Spieler und Ingame-Ressourcen.</p>
         </div>
     </div>
 
-            </section>
+    <div class="projekt-details">
+        <h4>Zeitrahmen</h4>
+        <p>01.09.2024 – 31.03.2025</p>
 
-            <section id="skills">
-                <h2>Skills</h2>
-                <ul>
-                    <li>HTML & CSS</li>
-                    <li>Java, Python</li>
-                    <li>JavaScript, TypeScript</li>
-                    <li>Teamwork</li>
-                </ul>
-            </section>
+        <h4>Besonderheiten</h4>
+        <p><strong>Hilfestellung für Neulinge UND erfahrene</strong></p>
+        <p>Die Website bietet einfache Navigation und schnelle Ladezeiten, perfekt für den Einsatz während des Spielens.</p>
 
-            <section id="kontakt">
-                <h2>Kontakt</h2>
-                <p>Du erreichst mich per <a href="mailto:sina@example.com">E-Mail</a> oder über LinkedIn (Link folgt).
-                </p>
-            </section>
-        </main>
+        <h4>Technologien</h4>
+            <li>Python</li>
+            <li>CSS</li>
+            <li>React</li>
+            <li>Flask</li>
+            <li>Mongoose</li>
+        </ul>
 
-        <footer>
-            <p>&copy; 2025 Sina – Medieninformatik</p>
-        </footer>
+        <h4>Links</h4>
+        <ul>
+            <li><a href="https://www.scorch-analytics.de" target="_blank" rel="noopener noreferrer">Zur Scorch-Website</a></li>
+            <!-- Optional: weitere Links -->
+        </ul>
 
-        <script>
-            // Aktiven Abschnitt anzeigen
-            function showSection(sectionId) {
-                document.querySelectorAll('section').forEach(section => {
-                    section.classList.remove('active');
-                });
-                document.getElementById(sectionId).classList.add('active');
-            }
+        <h4>Team</h4>
+        <ul>
+            <li>Ole Bachmann</li>
+            <li>Pia Cazimi</li>
+            <li>Luu-Bao Dinh</li>
+            <li>Noah Grimm</li>
+            <li>Viktor Wolff</li>
+        </ul>
 
-            // Standardabschnitt anzeigen
-            document.addEventListener("DOMContentLoaded", function () {
-                showSection('start');
-            });
+        <h4>Bildergalerie</h4>
+        <div class="projekt-gallery">
+            <!-- Hier kannst du Platzhalterbilder oder später echte Screenshots einfügen -->
+            <img src="images/placeholder1.png" alt="Screenshot 1">
+            <img src="images/placeholder2.png" alt="Screenshot 2">
+            <!-- Optional: kleiner Galerie-Slider -->
+        </div>
+    </div>
+</div>
 
-            function showSection(sectionId) {
-                document.querySelectorAll('section').forEach(section => {
-                    section.classList.remove('active');
-                });
-                document.getElementById(sectionId).classList.add('active');
-            }
+        <div class="projekt-kachel projekt-blau">
+          <div class="projekt-header">
+            <div class="projekt-logo">
+              <a href="https://www.example-app.de" target="_blank" rel="noopener noreferrer">
+                <img src="images/boulder.png" alt="Beispiel App Logo" class="scorch-logo">
+              </a>
+            </div>
+            <div class="projekt-info">
+              <h3>Boulder Tracking App</h3>
+              <p>Eine kleine App, mit der du entspannt deine Kletterfortschritte und -erfolge tracken kannst!</p>
+            </div>
+          </div>
+          <div class="projekt-details">
+            <h4>Boulder Tracking App – Details</h4>
+            <p>Mit dieser App kannst du deine Kletterversuche speichern, Fortschritte überwachen und Routen bewerten.</p>
+            <p><strong>Technologien:</strong> HTML, CSS, JavaScript</p>
+          </div>
+        </div>
 
-            function toggleMode() {
-                const body = document.body;
-                const button = document.getElementById('mode-toggle');
-                const isDark = body.classList.toggle('dark-mode');
-                localStorage.setItem('darkMode', isDark);
-                button.textContent = isDark ? '☀️' : '🌙';
-            }
+        <div class="projekt-kachel projekt-gruen">
+          <div class="projekt-header">
+            <div class="projekt-logo">
+              <a href="https://www.example-app.de" target="_blank" rel="noopener noreferrer">
+                <img src="images/boulder.png" alt="Beispiel App Logo" class="scorch-logo">
+              </a>
+            </div>
+            <div class="projekt-info">
+              <h3>Placeholder</h3>
+              <p>just a placeholder for now</p>
+            </div>
+          </div>
+          <div class="projekt-details">
+            <h4>Es folgen weitere Projekte</h4>
+            <p>xxxxxxxxxxxxx</p>
+            <p><strong>Technologien:</strong> HTML, CSS, JavaScript</p>
+          </div>
+        </div>
 
-            document.addEventListener("DOMContentLoaded", function () {
-                showSection('start');
+      </div>
 
-                // Dark Mode aus localStorage laden
-                const savedMode = localStorage.getItem('darkMode') === 'true';
-                if (savedMode) {
-                    document.body.classList.add('dark-mode');
-                    document.getElementById('mode-toggle').textContent = '☀️';
-                }
-            });
-        </script>
+    </section>
 
-    </body>
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML & CSS</li>
+        <li>Java, Python</li>
+        <li>JavaScript, TypeScript</li>
+        <li>Teamwork</li>
+      </ul>
+    </section>
 
-    </html>
+    <section id="kontakt">
+    <h2>Kontakt</h2>
+    <div class="kontakt-icons">
+        <!-- E-Mail -->
+        <a href="mailto:s92943@bht-berlin.de" target="_blank" rel="noopener noreferrer">
+            <img src="images/mail-icon.png" alt="E-Mail Icon">
+        </a>
+
+        <!-- Twitter -->
+        <a href="https://twitter.com/deinhandle" target="_blank" rel="noopener noreferrer">
+            <img src="images/twitter-icon.png" alt="Twitter Icon">
+        </a>
+
+        <!-- Discord -->
+        <a href="https://discord.com/users/deinid" target="_blank" rel="noopener noreferrer">
+            <img src="images/discord-icon.png" alt="Discord Icon">
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/deinhandle" target="_blank" rel="noopener noreferrer">
+            <img src="images/instagram-icon.png" alt="Instagram Icon">
+        </a>
+
+        <!-- Github -->
+        <a href="https://github.com/sinacso" target="_blank" rel="noopener noreferrer">
+            <img src="images/github-icon.png" alt="GitHub Icon">
+        </a>
+    </div>
+
+    <h3>Oder schreib mir direkt:</h3>
+    <form class="kontakt-formular">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="nachricht">Nachricht:</label>
+        <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
+
+        <button type="submit">Senden</button>
+    </form>
+</section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sina – Medieninformatik</p>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      showSection('start');
+
+      const savedMode = localStorage.getItem('darkMode') === 'true';
+      if (savedMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('mode-toggle').textContent = '☀️';
+      }
+    });
+
+    function toggleMode() {
+      const body = document.body;
+      const button = document.getElementById('mode-toggle');
+      const isDark = body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', isDark);
+      button.textContent = isDark ? '☀️' : '🌙';
+    }
+  </script>
+
+</body>
+
+</html>

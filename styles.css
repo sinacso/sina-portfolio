@@ -14,6 +14,7 @@ header {
   background-color: #c8ad87;
   padding: 2em;
   text-align: center;
+  position: relative;
 }
 
 header h1 {
@@ -97,7 +98,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
 /* Dark Mode Farben */
 body.dark-mode {
   background-color: #1e1e1e;
@@ -144,20 +144,16 @@ body.dark-mode li {
 }
 
 body.dark-mode .projekt-kachel {
-    background: linear-gradient(to right, #534c76 0%, #6f68a8 40%, #a89ed4 100%);
-    color: black;
+  background: linear-gradient(to right, #534c76 0%, #6f68a8 40%, #a89ed4 100%);
+  color: black;
 }
 
 body.dark-mode .projekt-info p {
-    color: #000000;
-    opacity: 1;
+  color: #000000;
+  opacity: 1;
 }
 
 /* Toggle-Button im Header oben rechts */
-header {
-  position: relative;
-}
-
 #mode-toggle {
   position: absolute;
   top: 1em;
@@ -191,88 +187,169 @@ body.dark-mode #mode-toggle:focus {
 
 /* Über mich Layout */
 .ueber-mich-container {
-    display: flex;
-    align-items: center;
-    gap: 2em;
-    flex-wrap: wrap; /* sorgt dafür, dass es auch auf kleineren Bildschirmen gut aussieht */
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  flex-wrap: wrap;
 }
 
 .profilbild {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #49453f;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #49453f;
 }
 
 .ueber-mich-text {
-    max-width: 600px;
-    font-size: 1.2em;
+  max-width: 600px;
+  font-size: 1.2em;
 }
 
+/* Projektkachel Layout */
 .projekt-kachel {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, #0b082c 0%, #2e2357 60%, #1c0f3a 100%);    
-    padding: 1.5em;
-    border-radius: 1em;
-    margin-bottom: 1.5em;
-    color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5em;
+  border-radius: 1em;
+  margin-bottom: 1.5em;
+  color: white;
+  transition: box-shadow 0.3s ease;
+  width: 100%;
 }
 
 .projekt-kachel:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Projektkachel Header (Logo + Info nebeneinander) */
+.projekt-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .projekt-logo {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .scorch-logo {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    background-color: #142a5a; /* etwas dunkler als vorher */
-    display: block;
-    border: 4px solid #4c437a;
-    cursor: pointer;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: #142a5a;
+  display: block;
+  border: 4px solid #4c437a;
+  cursor: pointer;
 }
 
 .projekt-info {
-    margin-left: 2em;
-    flex-grow: 1;
+  margin-left: 2em;
+  flex-grow: 1;
 }
 
 .projekt-info h3 {
-    margin: 0;
-    font-size: 1.8em;
+  margin: 0;
+  font-size: 1.8em;
 }
 
 .projekt-info p {
-    margin: 0.5em 0 0;
-    font-size: 1.2em;
-    color: white;
-    opacity: 0.9;
-    
+  margin: 0.5em 0 0;
+  font-size: 1.2em;
+  color: white;
+  opacity: 0.9;
 }
 
-.projekt-kachel-blau {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, #0a2740 0%, #1e6091 40%, #335b87 100%);
-    padding: 1.5em;
-    border-radius: 1em;
-    margin-bottom: 1.5em;
-    color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 800px;
+/* Projektkachel Zusatzinfos */
+.projekt-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease, background-color 0.5s ease;
+  padding: 0 0;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5em;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.projekt-kachel-blau:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+.projekt-details p {
+  color: white;
+}
+
+.projekt-kachel:hover .projekt-details {
+  max-height: 500px;
+  margin-top: 20px;
+  padding: 0em 0.7em;
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Projektkachel Farben */
+.projekt-scorch {
+  background: linear-gradient(to right, #0b082c 0%, #2e2357 60%, #1c0f3a 100%);
+}
+
+.projekt-blau {
+  background: linear-gradient(to right, #0a2740 0%, #1e6091 40%, #214265 100%);
+}
+
+.projekt-gruen {
+  background: linear-gradient(to right, #073426 0%, #11583e 40%, #194329 100%);
+}
+
+
+.kontakt-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  margin-bottom: 2em;
+  flex-wrap: wrap;
+}
+
+.kontakt-icons a img {
+  width: 80px; /* größer */
+  height: 80px; /* größer */
+  object-fit: cover;
+  border-radius: 50%; /* rund */
+  padding: 0; /* kein Innenabstand mehr */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kontakt-icons a img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.kontakt-formular {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.kontakt-formular input,
+.kontakt-formular textarea {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.kontakt-formular button {
+  padding: 0.7em;
+  border: none;
+  background-color: #222424;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.kontakt-formular button:hover {
+  background-color: #0fd4cd;
 }
