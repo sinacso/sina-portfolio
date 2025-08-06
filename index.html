@@ -12,25 +12,28 @@
     }
 
     .projekt-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5em;
-    }
-
-    @media (min-width: 800px) {
-      .projekt-container {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .projekt-container {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
     }
 
     .projekt-kachel {
       width: 100%;
+    }
+
+    /* Toggle Details bei Klick */
+    .projekt-details {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+    }
+
+    .projekt-kachel.active .projekt-details {
+      max-height: 2000px;
+      /* groß genug für den Inhalt */
+      opacity: 1;
+      padding: 1em;
     }
   </style>
 </head>
@@ -46,6 +49,7 @@
     <a onclick="showSection('ueber-mich')">Über mich</a>
     <a onclick="showSection('projekte')">Projekte</a>
     <a onclick="showSection('skills')">Skills</a>
+    <a onclick="showSection('blog')">Blog</a>
     <a onclick="showSection('kontakt')">Kontakt</a>
   </nav>
 
@@ -56,118 +60,163 @@
     </section>
 
     <section id="ueber-mich">
-      <h2>Über mich</h2>
-      <div class="ueber-mich-container">
-        <img src="images/regen2.PNG" alt="Portrait von Sina" class="profilbild">
-        <div class="ueber-mich-text">
-          <p>Ich bin Sina, 24 Jahre alt und studiere Medieninformatik im Bachelor.</p>
-          <p>Ich beginne gerade damit, kleine Webprojekte umzusetzen und dabei stets Wert auf Barrierefreiheit und Usability zu legen.</p>
-          <p>In meiner Freizeit beschäftige ich mich gerne mit Sport, Gaming und kleinen Bauprojekten.</p>
-        </div>
-      </div>
-    </section>
+  <h2>Über mich</h2>
+  <div class="ueber-mich-container" style="align-items: flex-start;">
+    <div class="ueber-mich-text">
+      <p>Ich bin Sina, 25 Jahre alt und studiere Medieninformatik im Bachelor an der Berliner Hochschule für Technik (BHT).</p>
+      <p>Ich beginne gerade damit, kleine Webprojekte umzusetzen und dabei stets Wert auf Barrierefreiheit und Usability zu legen.</p>
+      <p>In meiner Freizeit beschäftige ich mich gerne mit Sport, Gaming und kleinen Bauprojekten.</p>
+
+      <h3>Techniken, die ich beherrsche</h3>
+      <ul>
+        <li>HTML, CSS (auch responsive und semantisch korrekt)</li>
+        <li>JavaScript und TypeScript</li>
+        <li>Grundkenntnisse in Python, Java</li>
+        <li>Erfahrung mit React, Flask und Git</li>
+      </ul>
+
+      <h3>Was ich gerade lerne</h3>
+      <p>Ich vertiefe aktuell meine Kenntnisse in Frontend-Frameworks wie React, beschäftige mich mit Design-Systemen sowie mit Themen rund um Accessibility und UX-Design.</p>
+
+      <h3>Meine Arbeitsweise</h3>
+      <p>Ich arbeite gerne strukturiert, lösungsorientiert und achte dabei auf sauberen, verständlichen Code. Für mich steht Nutzerfreundlichkeit immer an erster Stelle - sowohl technisch als auch gestalterisch.</p>
+
+      <h3>Was ich an Webseiten nicht mag</h3>
+      <ul>
+        <li>Unübersichtliche Navigation</li>
+        <li>Unnötige Animationen, die vom Inhalt ablenken</li>
+        <li>Fehlende Kontraste oder unleserliche Schriftgrößen</li>
+      </ul>
+
+      <h3>Worauf ich besonderen Wert lege</h3>
+      <ul>
+        <li>Barrierefreiheit und gutes Farbkontrastverhältnis</li>
+        <li>Mobiloptimierung und klare Struktur</li>
+        <li>Kurze Ladezeiten und gute Usability</li>
+      </ul>
+    </div>
+
+    <img src="images/regen2.PNG" alt="Portrait von Sina" class="profilbild">
+  </div>
+</section>
+
 
     <section id="projekte">
       <h2>Projekte</h2>
-
       <div class="projekt-container">
 
+        <!-- Beispielprojekt: Scorch Website -->
         <div class="projekt-kachel projekt-scorch" onclick="toggleDetails(this)">
-    <div class="projekt-header">
-        <div class="projekt-logo">
-            <a href="https://www.scorch-analytics.de" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">
-                <img src="images/scorch.png" alt="Scorch Logo" class="scorch-logo">
-            </a>
-        </div>
-        <div class="projekt-info">
-            <h3>Scorch Website</h3>
-            <p>Eine Statistik-Website für Spieler und Ingame-Ressourcen.</p>
-        </div>
-    </div>
-
-    <div class="projekt-details">
-        <h4>Zeitrahmen</h4>
-        <p>01.09.2024 – 31.03.2025</p>
-
-        <h4>Besonderheiten</h4>
-        <p><strong>Hilfestellung für Neulinge UND erfahrene</strong></p>
-        <p>Die Website bietet einfache Navigation und schnelle Ladezeiten, perfekt für den Einsatz während des Spielens.</p>
-
-        <h4>Technologien</h4>
-            <li>Python</li>
-            <li>CSS</li>
-            <li>React</li>
-            <li>Flask</li>
-            <li>Mongoose</li>
-        </ul>
-
-        <h4>Links</h4>
-        <ul>
-            <li><a href="https://www.scorch-analytics.de" target="_blank" rel="noopener noreferrer">Zur Scorch-Website</a></li>
-            <!-- Optional: weitere Links -->
-        </ul>
-
-        <h4>Team</h4>
-        <ul>
-            <li>Ole Bachmann</li>
-            <li>Pia Cazimi</li>
-            <li>Luu-Bao Dinh</li>
-            <li>Noah Grimm</li>
-            <li>Viktor Wolff</li>
-        </ul>
-
-        <h4>Bildergalerie</h4>
-        <div class="projekt-gallery">
-            <!-- Hier kannst du Platzhalterbilder oder später echte Screenshots einfügen -->
-            <img src="images/placeholder1.png" alt="Screenshot 1">
-            <img src="images/placeholder2.png" alt="Screenshot 2">
-            <!-- Optional: kleiner Galerie-Slider -->
-        </div>
-    </div>
-</div>
-
-        <div class="projekt-kachel projekt-blau">
           <div class="projekt-header">
             <div class="projekt-logo">
-              <a href="https://www.example-app.de" target="_blank" rel="noopener noreferrer">
-                <img src="images/boulder.png" alt="Beispiel App Logo" class="scorch-logo">
+              <a href="https://www.scorch-analytics.de" target="_blank" rel="noopener noreferrer"
+                onclick="event.stopPropagation()">
+                <img src="images/scorch.png" alt="Scorch Logo" class="scorch-logo">
+              </a>
+            </div>
+            <div class="projekt-info">
+              <h3>Scorch Website</h3>
+              <p>Eine Statistik-Website für Spieler und Ingame-Ressourcen.</p>
+            </div>
+          </div>
+
+          <div class="projekt-details">
+            <h4>Zeitrahmen</h4>
+            <p>01.09.2024 – 31.03.2025</p>
+
+            <h4>Besonderheiten</h4>
+            <p>Die Website bietet eine Hilfestellung für Neulinge und erfahrene Spieler, sowie eine einfache Navigation
+              und schnelle Ladezeiten, perfekt für den Einsatz während des Spielens.</p>
+
+            <h4>Technologien</h4>
+            <ul>
+              <li>Python</li>
+              <li>CSS</li>
+              <li>React</li>
+              <li>Flask</li>
+              <li>Mongoose</li>
+            </ul>
+
+            <h4>Links</h4>
+            <ul>
+              <li><a href="https://www.scorch-analytics.de" target="_blank" rel="noopener noreferrer">Zur
+                  Scorch-Website</a></li>
+            </ul>
+
+            <h4>Team</h4>
+            <ul>
+              <li>Ole Bachmann</li>
+              <li>Pia Cazimi</li>
+              <li>Luu-Bao Dinh</li>
+              <li>Noah Grimm</li>
+              <li>Viktor Wolff</li>
+            </ul>
+
+            <h4>Bildergalerie</h4>
+            <div class="projekt-gallery-slider">
+    <img src="images/start1.PNG" alt="Screenshot 1">
+    <img src="images/start2.PNG" alt="Screenshot 2">
+    <img src="images/tags.PNG" alt="Screenshot 3">
+    <img src="images/GPI.PNG" alt="Screenshot 4">
+  </div>
+          </div>
+        </div>
+
+        <!-- Boulder App -->
+        <div class="projekt-kachel projekt-blau" onclick="toggleDetails(this)">
+          <div class="projekt-header">
+            <div class="projekt-logo">
+              <a href="https://www.example-app.de" target="_blank" rel="noopener noreferrer"
+                onclick="event.stopPropagation()">
+                <img src="images/boulder.png" alt="Boulder App Logo" class="scorch-logo">
               </a>
             </div>
             <div class="projekt-info">
               <h3>Boulder Tracking App</h3>
-              <p>Eine kleine App, mit der du entspannt deine Kletterfortschritte und -erfolge tracken kannst!</p>
+              <p>Eine App zur Erfassung und Auswertung deiner Kletterfortschritte.</p>
             </div>
           </div>
+
           <div class="projekt-details">
-            <h4>Boulder Tracking App – Details</h4>
-            <p>Mit dieser App kannst du deine Kletterversuche speichern, Fortschritte überwachen und Routen bewerten.</p>
-            <p><strong>Technologien:</strong> HTML, CSS, JavaScript</p>
+            <h4>Zeitrahmen</h4>
+            <p>01.07.2025 – 14.06.2025</p>
+
+            <h4>Besonderheiten</h4>
+            <p>Offline-Speicherung, Fortschrittsanzeige, Einblick in alle Sets</p>
+
+            <h4>Technologien</h4>
+            <ul>
+              <li>CSS</li>
+              <li>Kotlin</li>
+              <li>Android Studio</li>
+            </ul>
+
+            <h4>Links</h4>
+            <ul>
+              <li>Wird ergänzt, sobald vorhanden</li>
+            </ul>
+
+            <h4>Team</h4>
+            <ul>
+              <li>Sina C.</li>
+            </ul>
+
+            <h4>Bildergalerie</h4>
+            <div class="projekt-gallery-slider">
+    <img src="images/sektoren.PNG" alt="Screenshot 1">
+    <img src="images/sektor.PNG" alt="Screenshot 2">
+    <img src="images/archiv.PNG" alt="Screenshot 3">
+    <img src="images/set.PNG" alt="Screenshot 4">
+    <img src="images/stats.PNG" alt="Screenshot 5">
+    <img src="images/stats2.PNG" alt="Screenshot 5">
+  </div>
           </div>
         </div>
 
-        <div class="projekt-kachel projekt-gruen">
-          <div class="projekt-header">
-            <div class="projekt-logo">
-              <a href="https://www.example-app.de" target="_blank" rel="noopener noreferrer">
-                <img src="images/boulder.png" alt="Beispiel App Logo" class="scorch-logo">
-              </a>
-            </div>
-            <div class="projekt-info">
-              <h3>Placeholder</h3>
-              <p>just a placeholder for now</p>
-            </div>
-          </div>
-          <div class="projekt-details">
-            <h4>Es folgen weitere Projekte</h4>
-            <p>xxxxxxxxxxxxx</p>
-            <p><strong>Technologien:</strong> HTML, CSS, JavaScript</p>
-          </div>
-        </div>
+
 
       </div>
-
     </section>
-
     <section id="skills">
       <h2>Skills</h2>
       <ul>
@@ -178,37 +227,60 @@
       </ul>
     </section>
 
+    <section id="blog">
+  <h2>Blog</h2>
+  <div class="blog-grid">
+
+    <article class="blog-card">
+      <img src="images/blog1.png" alt="Blogbild 1" />
+      <h3>Warum Barrierefreiheit nicht optional ist</h3>
+      <p>Ein Blick auf häufige Probleme und einfache Lösungen für barrierefreies Webdesign.</p>
+      <a href="blog/barrierefreiheit.html">Mehr lesen</a>
+    </article>
+
+    <article class="blog-card">
+      <img src="images/blog2.png" alt="Blogbild 2" />
+      <h3>Mein erstes React-Projekt</h3>
+      <p>Erfahrungen, Fehler und Learnings beim Einstieg in Komponenten und Hooks.</p>
+      <a href="blog/react-erfahrung.html">Mehr lesen</a>
+    </article>
+
+    <!-- Weitere Blogeinträge hier -->
+    
+  </div>
+</section>
+
     <section id="kontakt">
-    <h2>Kontakt</h2>
-    <div class="kontakt-icons">
+      <h2>Kontakt</h2>
+      <div class="kontakt-icons">
         <!-- E-Mail -->
         <a href="mailto:s92943@bht-berlin.de" target="_blank" rel="noopener noreferrer">
-            <img src="images/mail-icon.png" alt="E-Mail Icon">
+          <img src="images/mail-icon.png" alt="E-Mail Icon">
         </a>
 
         <!-- Twitter -->
         <a href="https://twitter.com/deinhandle" target="_blank" rel="noopener noreferrer">
-            <img src="images/twitter-icon.png" alt="Twitter Icon">
+          <img src="images/twitter-icon.png" alt="Twitter Icon">
         </a>
 
         <!-- Discord -->
         <a href="https://discord.com/users/deinid" target="_blank" rel="noopener noreferrer">
-            <img src="images/discord-icon.png" alt="Discord Icon">
+          <img src="images/discord-icon.png" alt="Discord Icon">
         </a>
 
         <!-- Instagram -->
         <a href="https://www.instagram.com/deinhandle" target="_blank" rel="noopener noreferrer">
-            <img src="images/instagram-icon.png" alt="Instagram Icon">
+          <img src="images/instagram-icon.png" alt="Instagram Icon">
         </a>
 
         <!-- Github -->
         <a href="https://github.com/sinacso" target="_blank" rel="noopener noreferrer">
-            <img src="images/github-icon.png" alt="GitHub Icon">
+          <img src="images/github-icon.png" alt="GitHub Icon">
         </a>
-    </div>
+      </div>
 
-    <h3>Oder schreib mir direkt:</h3>
-    <form class="kontakt-formular">
+      <h3>Oder schreib mir direkt:</h3>
+      <form class="kontakt-formular">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
@@ -219,9 +291,8 @@
         <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
 
         <button type="submit">Senden</button>
-    </form>
-</section>
-
+      </form>
+    </section>
   </main>
 
   <footer>
@@ -229,6 +300,14 @@
   </footer>
 
   <script>
+    function toggleDetails(card) {
+      const allCards = document.querySelectorAll('.projekt-kachel');
+      allCards.forEach(c => {
+        if (c !== card) c.classList.remove('active');
+      });
+      card.classList.toggle('active');
+    }
+
     function showSection(sectionId) {
       document.querySelectorAll('section').forEach(section => {
         section.classList.remove('active');
@@ -238,7 +317,6 @@
 
     document.addEventListener("DOMContentLoaded", function () {
       showSection('start');
-
       const savedMode = localStorage.getItem('darkMode') === 'true';
       if (savedMode) {
         document.body.classList.add('dark-mode');
@@ -254,7 +332,6 @@
       button.textContent = isDark ? '☀️' : '🌙';
     }
   </script>
-
 </body>
 
 </html>
